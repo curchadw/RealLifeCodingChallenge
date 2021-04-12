@@ -23,7 +23,7 @@
 //   //  return string
 // }
 // complete in 1 hour
-let scores = [800,700,600]
+
 
 function codingScoreReportPercent(scores) {
   let score1 =''
@@ -38,16 +38,19 @@ function codingScoreReportPercent(scores) {
   let tally3 = 0
   let tally4 = 0
   let tally5 = 0
+ 
+  //this for loop is pulling out scores that below 300 so that they are not factored in the size of the array since these score are not supposed to be there.
+  for (let j = 0; j < scores.length; j++){
+     if( scores[j] < 300 ){
+      scores.splice(j,1)
+      
+    }
+
+  }
+
   for (let i = 0; i < scores.length; i++){
 
      //when a particular score is detected the tally increases for that score and is divided by the number of users
-
-    if( scores[i] < 300 ){
-      scores.splice(i,1)
-      console.log(scores)
-    }
-
-
     if (scores[i] < 600 && scores[i] > 299){
       // Poor: 300-599
       score1 = 'Poor'
@@ -99,7 +102,7 @@ function codingScoreReportPercent(scores) {
   
   
 
-  return statsArr
+  return statsArr.sort()
 
   
   
@@ -109,4 +112,3 @@ function codingScoreReportPercent(scores) {
 }
 
 
-console.log(codingScoreReportPercent(scores))
