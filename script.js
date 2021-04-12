@@ -32,7 +32,11 @@ function codingScoreReportPercent(scores) {
   let score4 =''
   let score5 =''
   const statsArr = []
-  let percentage = 0
+  let percentage1 = 0
+  let percentage2 = 0
+  let percentage3 = 0
+  let percentage4 = 0
+  let percentage5 = 0
   let tally1 = 0
   let tally2 = 0
   let tally3 = 0
@@ -41,7 +45,7 @@ function codingScoreReportPercent(scores) {
  
   //this for loop is pulling out scores that below 300 so that they are not factored in the size of the array since these score are not supposed to be there.
   for (let j = 0; j < scores.length; j++){
-     if( scores[j] < 300 ){
+     if( scores[j] <= 299 ){
       scores.splice(j,1)
       
     }
@@ -51,54 +55,62 @@ function codingScoreReportPercent(scores) {
   for (let i = 0; i < scores.length; i++){
 
      //when a particular score is detected the tally increases for that score and is divided by the number of users
-    if (scores[i] < 600 && scores[i] > 299){
+    if (scores[i] <= 599 && scores[i] >= 300){
       // Poor: 300-599
       score1 = 'Poor'
       tally1 += 1
-      percentage = ((tally1/scores.length)*100).toFixed(2);
       
-    }else if (scores[i] > 599 && scores[i] < 700){
+      
+    }else if (scores[i] >= 600 && scores[i] <= 699){
       // Fair: 600-699
       score2 = 'Fair'
       tally2 += 1
-      percentage = ((tally2/scores.length)*100).toFixed(2);
       
-    }else if (scores[i] > 699 && scores[i] < 750){
+      
+    }else if (scores[i] >= 700 && scores[i] <= 749){
       // Good: 700-749
       score3 = 'Good'
       tally3 += 1
-      percentage = ((tally3/scores.length)*100).toFixed(2);
       
-    }else if (scores[i] > 749 && scores[i] < 800 ){
+      
+    }else if (scores[i] >= 750 && scores[i] <= 799 ){
       // Excellent: 750-799
       score4 = 'Excellent'
       tally4 += 1
-      percentage = ((tally4/scores.length)*100).toFixed(2);
       
-    }else if ( scores[i] > 799){
+      
+    }else if ( scores[i] >= 700){
     // Elite: 800+
       score5 = 'Elite'
      
       tally5 += 1
-      percentage = ((tally5/scores.length)*100).toFixed(2);
+      
       
     }
   
   }
+
+  //This will calculate the percentages for each score type
+  percentage1 = ((tally1/scores.length)*100).toFixed(2);
+  percentage2 = ((tally2/scores.length)*100).toFixed(2);
+  percentage3 = ((tally3/scores.length)*100).toFixed(2);
+  percentage4 = ((tally4/scores.length)*100).toFixed(2);
+  percentage5 = ((tally5/scores.length)*100).toFixed(2);
+
   if(score1)
-    statsArr.push(`${score1} : ${percentage}%`)
+    statsArr.push(`${score1} : ${percentage1}%`)
 
   if(score2)
-    statsArr.push(`${score2} : ${percentage}%`)
+    statsArr.push(`${score2} : ${percentage2}%`)
   
   if(score3)
-    statsArr.push(`${score3} : ${percentage}%`)
+    statsArr.push(`${score3} : ${percentage3}%`)
   
   if(score4)
-    statsArr.push(`${score4} : ${percentage}%`)
+    statsArr.push(`${score4} : ${percentage4}%`)
   
   if(score5)
-    statsArr.push(`${score5} : ${percentage}%`)
+    statsArr.push(`${score5} : ${percentage5}%`)
   
   
 
