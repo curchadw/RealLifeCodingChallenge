@@ -41,6 +41,13 @@ function codingScoreReportPercent(scores) {
   for (let i = 0; i < scores.length; i++){
 
      //when a particular score is detected the tally increases for that score and is divided by the number of users
+
+    if( scores[i] < 300 ){
+      scores.splice(i,1)
+      console.log(scores)
+    }
+
+
     if (scores[i] < 600 && scores[i] > 299){
       // Poor: 300-599
       score1 = 'Poor'
@@ -72,8 +79,6 @@ function codingScoreReportPercent(scores) {
       tally5 += 1
       percentage = ((tally5/scores.length)*100).toFixed(2);
       
-    }else{
-      score = 'Come back'
     }
   
   }
