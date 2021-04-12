@@ -99,6 +99,7 @@ function codingScoreReportPercent(scores) {
   percentage4 = ((tally4/scores.length)*100).toFixed(2);
   percentage5 = ((tally5/scores.length)*100).toFixed(2);
 
+  //if a score type is present, it will get pushed into array
   if(score1)
     statsArr.push(`${score1} : ${percentage1}%`)
 
@@ -113,7 +114,7 @@ function codingScoreReportPercent(scores) {
   
   if(score5)
     statsArr.push(`${score5} : ${percentage5}%`)
-  
+  //This will order by percentages
   let current = statsArr[0]
   for (let i = 0; i < statsArr.lenght; i++){
     if (statsArr[i] > statsArr[0])
