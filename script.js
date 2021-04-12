@@ -90,6 +90,8 @@ function codingScoreReportPercent(scores) {
   
   }
 
+  
+
   //This will calculate the percentages for each score type
   percentage1 = ((tally1/scores.length)*100).toFixed(2);
   percentage2 = ((tally2/scores.length)*100).toFixed(2);
@@ -112,9 +114,13 @@ function codingScoreReportPercent(scores) {
   if(score5)
     statsArr.push(`${score5} : ${percentage5}%`)
   
-  
+  let current = statsArr[0]
+  for (let i = 0; i < statsArr.lenght; i++){
+    if (statsArr[i] > statsArr[0])
+      current = statsArr[i]
+  }
 
-  return statsArr.sort()
+  return statsArr
 
   
   
